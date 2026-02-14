@@ -1,0 +1,668 @@
+{
+    "standardversion": "https://torgi.gov.ru/new/nsi/v1/file-store/68de96d9781d120ec4fce543",
+    "identifier": "7710568760-contract",
+    "title": "Договоры, исполнения и расторжения договоров",
+    "description": "Договоры, исполнения и расторжения договоров, опубликованные на ОС ГИС Торги",
+    "creator": "Федеральное казначейство",
+    "created": "20220201",
+    "modified": "20260214T0000",
+    "subject": "Договоры, торги, продажа, лот",
+    "format": ".json",
+    "data": [
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20220101T0000-20220201T0000-structure-20230401.json",
+            "created": "20220201T0000",
+            "provenance": "Выгрузка размещённых договоров за 01.2022",
+            "valid": "20220201",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20220201T0000-20220301T0000-structure-20230401.json",
+            "created": "20220301T0000",
+            "provenance": "Выгрузка размещённых договоров за 02.2022",
+            "valid": "20220301",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20220301T0000-20220401T0000-structure-20230401.json",
+            "created": "20220401T0000",
+            "provenance": "Выгрузка размещённых договоров за 03.2022",
+            "valid": "20220401",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20220401T0000-20220501T0000-structure-20230401.json",
+            "created": "20220501T0000",
+            "provenance": "Выгрузка размещённых договоров за 04.2022",
+            "valid": "20220501",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20220501T0000-20220601T0000-structure-20230401.json",
+            "created": "20220601T0000",
+            "provenance": "Выгрузка размещённых договоров за 05.2022",
+            "valid": "20220601",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20220601T0000-20220701T0000-structure-20230401.json",
+            "created": "20220701T0000",
+            "provenance": "Выгрузка размещённых договоров за 06.2022",
+            "valid": "20220701",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20220701T0000-20220801T0000-structure-20230401.json",
+            "created": "20220801T0000",
+            "provenance": "Выгрузка размещённых договоров за 07.2022",
+            "valid": "20220801",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20220801T0000-20220901T0000-structure-20230401.json",
+            "created": "20220901T0000",
+            "provenance": "Выгрузка размещённых договоров за 08.2022",
+            "valid": "20220901",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20220901T0000-20221001T0000-structure-20230401.json",
+            "created": "20221001T0000",
+            "provenance": "Выгрузка размещённых договоров за 09.2022",
+            "valid": "20221001",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20221001T0000-20221101T0000-structure-20230401.json",
+            "created": "20221101T0000",
+            "provenance": "Выгрузка размещённых договоров за 10.2022",
+            "valid": "20221101",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20221101T0000-20221201T0000-structure-20230401.json",
+            "created": "20221201T0000",
+            "provenance": "Выгрузка размещённых договоров за 11.2022",
+            "valid": "20221201",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20221201T0000-20230101T0000-structure-20230401.json",
+            "created": "20230101T0000",
+            "provenance": "Выгрузка размещённых договоров за 12.2022",
+            "valid": "20230101",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20230101T0000-20230201T0000-structure-20230401.json",
+            "created": "20230201T0000",
+            "provenance": "Выгрузка размещённых договоров за 01.2023",
+            "valid": "20230201",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20230201T0000-20230301T0000-structure-20230401.json",
+            "created": "20230301T0000",
+            "provenance": "Выгрузка размещённых договоров за 02.2023",
+            "valid": "20230301",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20230301T0000-20230401T0000-structure-20230401.json",
+            "created": "20230401T0000",
+            "provenance": "Выгрузка размещённых договоров за 03.2023",
+            "valid": "20230401",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20230401T0000-20230501T0000-structure-20230401.json",
+            "created": "20230501T0000",
+            "provenance": "Выгрузка размещённых договоров за 04.2023",
+            "valid": "20230501",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20230501T0000-20230601T0000-structure-20230401.json",
+            "created": "20230601T0000",
+            "provenance": "Выгрузка размещённых договоров за 05.2023",
+            "valid": "20230601",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20230601T0000-20230701T0000-structure-20230401.json",
+            "created": "20230701T0000",
+            "provenance": "Выгрузка размещённых договоров за 06.2023",
+            "valid": "20230701",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20230701T0000-20230801T0000-structure-20230401.json",
+            "created": "20230801T0000",
+            "provenance": "Выгрузка размещённых договоров за 07.2023",
+            "valid": "20230801",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20230801T0000-20230901T0000-structure-20230401.json",
+            "created": "20230901T0000",
+            "provenance": "Выгрузка размещённых договоров за 08.2023",
+            "valid": "20230901",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20230901T0000-20231001T0000-structure-20230401.json",
+            "created": "20231001T0000",
+            "provenance": "Выгрузка размещённых договоров за 09.2023",
+            "valid": "20231001",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20231001T0000-20231101T0000-structure-20230401.json",
+            "created": "20231101T0000",
+            "provenance": "Выгрузка размещённых договоров за 10.2023",
+            "valid": "20231101",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20231101T0000-20231201T0000-structure-20230401.json",
+            "created": "20231201T0000",
+            "provenance": "Выгрузка размещённых договоров за 11.2023",
+            "valid": "20231201",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20240501T0000-20240601T0000-structure-20230401.json",
+            "created": "20240601T0000",
+            "provenance": "Выгрузка размещённых договоров за 05.2024",
+            "valid": "20240601",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20231201T0000-20240101T0000-structure-20230401.json",
+            "created": "20240613T0538",
+            "provenance": "Выгрузка размещённых договоров за 12.2023",
+            "valid": "20240101",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20240101T0000-20240201T0000-structure-20230401.json",
+            "created": "20240613T0540",
+            "provenance": "Выгрузка размещённых договоров за 01.2024",
+            "valid": "20240201",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20240201T0000-20240301T0000-structure-20230401.json",
+            "created": "20240613T0540",
+            "provenance": "Выгрузка размещённых договоров за 02.2024",
+            "valid": "20240301",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20240301T0000-20240401T0000-structure-20230401.json",
+            "created": "20240613T0540",
+            "provenance": "Выгрузка размещённых договоров за 03.2024",
+            "valid": "20240401",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20240401T0000-20240501T0000-structure-20230401.json",
+            "created": "20240613T0540",
+            "provenance": "Выгрузка размещённых договоров за 04.2024",
+            "valid": "20240501",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20240601T0000-20240701T0000-structure-20230401.json",
+            "created": "20240701T0000",
+            "provenance": "Выгрузка размещённых договоров за 06.2024",
+            "valid": "20240701",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20240701T0000-20240801T0000-structure-20230401.json",
+            "created": "20240801T0000",
+            "provenance": "Выгрузка размещённых договоров за 07.2024",
+            "valid": "20240801",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20240801T0000-20240901T0000-structure-20230401.json",
+            "created": "20240901T0000",
+            "provenance": "Выгрузка размещённых договоров за 08.2024",
+            "valid": "20240901",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20240901T0000-20241001T0000-structure-20230401.json",
+            "created": "20241001T0000",
+            "provenance": "Выгрузка размещённых договоров за 09.2024",
+            "valid": "20241001",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20241001T0000-20241101T0000-structure-20230401.json",
+            "created": "20241101T0000",
+            "provenance": "Выгрузка размещённых договоров за 10.2024",
+            "valid": "20241101",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20241101T0000-20241201T0000-structure-20230401.json",
+            "created": "20241201T0000",
+            "provenance": "Выгрузка размещённых договоров за 11.2024",
+            "valid": "20241201",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20241201T0000-20250101T0000-structure-20230401.json",
+            "created": "20250101T0000",
+            "provenance": "Выгрузка размещённых договоров за 12.2024",
+            "valid": "20250101",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20250101T0000-20250201T0000-structure-20230401.json",
+            "created": "20250201T0000",
+            "provenance": "Выгрузка размещённых договоров за 01.2025",
+            "valid": "20250201",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20250201T0000-20250301T0000-structure-20230401.json",
+            "created": "20250301T0000",
+            "provenance": "Выгрузка размещённых договоров за 02.2025",
+            "valid": "20250301",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20250301T0000-20250401T0000-structure-20230401.json",
+            "created": "20250401T0000",
+            "provenance": "Выгрузка размещённых договоров за 03.2025",
+            "valid": "20250401",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20250401T0000-20250501T0000-structure-20230401.json",
+            "created": "20250501T0000",
+            "provenance": "Выгрузка размещённых договоров за 04.2025",
+            "valid": "20250501",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20250501T0000-20250601T0000-structure-20230401.json",
+            "created": "20250601T0000",
+            "provenance": "Выгрузка размещённых договоров за 05.2025",
+            "valid": "20250601",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20250601T0000-20250701T0000-structure-20230401.json",
+            "created": "20250701T0000",
+            "provenance": "Выгрузка размещённых договоров за 06.2025",
+            "valid": "20250701",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20250701T0000-20250801T0000-structure-20230401.json",
+            "created": "20250801T0000",
+            "provenance": "Выгрузка размещённых договоров за 07.2025",
+            "valid": "20250801",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20250801T0000-20250901T0000-structure-20230401.json",
+            "created": "20250901T0000",
+            "provenance": "Выгрузка размещённых договоров за 08.2025",
+            "valid": "20250901",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20250901T0000-20251001T0000-structure-20230401.json",
+            "created": "20251001T0000",
+            "provenance": "Выгрузка размещённых договоров за 09.2025",
+            "valid": "20251001",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20251001T0000-20251101T0000-structure-20230401.json",
+            "created": "20251101T0000",
+            "provenance": "Выгрузка размещённых договоров за 10.2025",
+            "valid": "20251101",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20251101T0000-20251201T0000-structure-20230401.json",
+            "created": "20251201T0000",
+            "provenance": "Выгрузка размещённых договоров за 11.2025",
+            "valid": "20251201",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20251201T0000-20260101T0000-structure-20230401.json",
+            "created": "20260101T0000",
+            "provenance": "Выгрузка размещённых договоров за 12.2025",
+            "valid": "20260101",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260101T0000-20260102T0000-structure-20230401.json",
+            "created": "20260102T0000",
+            "provenance": "Выгрузка размещённых договоров за 01.01.2026",
+            "valid": "20260103",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260102T0000-20260103T0000-structure-20230401.json",
+            "created": "20260103T0000",
+            "provenance": "Выгрузка размещённых договоров за 02.01.2026",
+            "valid": "20260104",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260103T0000-20260104T0000-structure-20230401.json",
+            "created": "20260104T0000",
+            "provenance": "Выгрузка размещённых договоров за 03.01.2026",
+            "valid": "20260105",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260104T0000-20260105T0000-structure-20230401.json",
+            "created": "20260105T0000",
+            "provenance": "Выгрузка размещённых договоров за 04.01.2026",
+            "valid": "20260106",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260105T0000-20260106T0000-structure-20230401.json",
+            "created": "20260106T0000",
+            "provenance": "Выгрузка размещённых договоров за 05.01.2026",
+            "valid": "20260107",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260106T0000-20260107T0000-structure-20230401.json",
+            "created": "20260107T0000",
+            "provenance": "Выгрузка размещённых договоров за 06.01.2026",
+            "valid": "20260108",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260107T0000-20260108T0000-structure-20230401.json",
+            "created": "20260108T0000",
+            "provenance": "Выгрузка размещённых договоров за 07.01.2026",
+            "valid": "20260109",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260108T0000-20260109T0000-structure-20230401.json",
+            "created": "20260109T0000",
+            "provenance": "Выгрузка размещённых договоров за 08.01.2026",
+            "valid": "20260110",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260109T0000-20260110T0000-structure-20230401.json",
+            "created": "20260110T0000",
+            "provenance": "Выгрузка размещённых договоров за 09.01.2026",
+            "valid": "20260111",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260110T0000-20260111T0000-structure-20230401.json",
+            "created": "20260111T0000",
+            "provenance": "Выгрузка размещённых договоров за 10.01.2026",
+            "valid": "20260112",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260111T0000-20260112T0000-structure-20230401.json",
+            "created": "20260112T0000",
+            "provenance": "Выгрузка размещённых договоров за 11.01.2026",
+            "valid": "20260113",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260112T0000-20260113T0000-structure-20230401.json",
+            "created": "20260113T0000",
+            "provenance": "Выгрузка размещённых договоров за 12.01.2026",
+            "valid": "20260114",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260113T0000-20260114T0000-structure-20230401.json",
+            "created": "20260114T0000",
+            "provenance": "Выгрузка размещённых договоров за 13.01.2026",
+            "valid": "20260115",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260114T0000-20260115T0000-structure-20230401.json",
+            "created": "20260115T0000",
+            "provenance": "Выгрузка размещённых договоров за 14.01.2026",
+            "valid": "20260116",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260115T0000-20260116T0000-structure-20230401.json",
+            "created": "20260116T0000",
+            "provenance": "Выгрузка размещённых договоров за 15.01.2026",
+            "valid": "20260117",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260116T0000-20260117T0000-structure-20230401.json",
+            "created": "20260117T0000",
+            "provenance": "Выгрузка размещённых договоров за 16.01.2026",
+            "valid": "20260118",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260117T0000-20260118T0000-structure-20230401.json",
+            "created": "20260118T0000",
+            "provenance": "Выгрузка размещённых договоров за 17.01.2026",
+            "valid": "20260119",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260118T0000-20260119T0000-structure-20230401.json",
+            "created": "20260119T0000",
+            "provenance": "Выгрузка размещённых договоров за 18.01.2026",
+            "valid": "20260120",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260119T0000-20260120T0000-structure-20230401.json",
+            "created": "20260120T0000",
+            "provenance": "Выгрузка размещённых договоров за 19.01.2026",
+            "valid": "20260121",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260120T0000-20260121T0000-structure-20230401.json",
+            "created": "20260121T0000",
+            "provenance": "Выгрузка размещённых договоров за 20.01.2026",
+            "valid": "20260122",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260121T0000-20260122T0000-structure-20230401.json",
+            "created": "20260122T0000",
+            "provenance": "Выгрузка размещённых договоров за 21.01.2026",
+            "valid": "20260123",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260122T0000-20260123T0000-structure-20230401.json",
+            "created": "20260123T0000",
+            "provenance": "Выгрузка размещённых договоров за 22.01.2026",
+            "valid": "20260124",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260123T0000-20260124T0000-structure-20230401.json",
+            "created": "20260124T0000",
+            "provenance": "Выгрузка размещённых договоров за 23.01.2026",
+            "valid": "20260125",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260124T0000-20260125T0000-structure-20230401.json",
+            "created": "20260125T0000",
+            "provenance": "Выгрузка размещённых договоров за 24.01.2026",
+            "valid": "20260126",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260125T0000-20260126T0000-structure-20230401.json",
+            "created": "20260126T0000",
+            "provenance": "Выгрузка размещённых договоров за 25.01.2026",
+            "valid": "20260127",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260126T0000-20260127T0000-structure-20230401.json",
+            "created": "20260127T0000",
+            "provenance": "Выгрузка размещённых договоров за 26.01.2026",
+            "valid": "20260128",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260127T0000-20260128T0000-structure-20230401.json",
+            "created": "20260128T0000",
+            "provenance": "Выгрузка размещённых договоров за 27.01.2026",
+            "valid": "20260129",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260128T0000-20260129T0000-structure-20230401.json",
+            "created": "20260129T0000",
+            "provenance": "Выгрузка размещённых договоров за 28.01.2026",
+            "valid": "20260130",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260129T0000-20260130T0000-structure-20230401.json",
+            "created": "20260130T0000",
+            "provenance": "Выгрузка размещённых договоров за 29.01.2026",
+            "valid": "20260131",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260130T0000-20260131T0000-structure-20230401.json",
+            "created": "20260131T0000",
+            "provenance": "Выгрузка размещённых договоров за 30.01.2026",
+            "valid": "20260201",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260131T0000-20260201T0000-structure-20230401.json",
+            "created": "20260201T0000",
+            "provenance": "Выгрузка размещённых договоров за 31.01.2026",
+            "valid": "20260202",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260201T0000-20260202T0000-structure-20230401.json",
+            "created": "20260202T0000",
+            "provenance": "Выгрузка размещённых договоров за 01.02.2026",
+            "valid": "20260203",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260202T0000-20260203T0000-structure-20230401.json",
+            "created": "20260203T0000",
+            "provenance": "Выгрузка размещённых договоров за 02.02.2026",
+            "valid": "20260204",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260203T0000-20260204T0000-structure-20230401.json",
+            "created": "20260204T0000",
+            "provenance": "Выгрузка размещённых договоров за 03.02.2026",
+            "valid": "20260205",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260204T0000-20260205T0000-structure-20230401.json",
+            "created": "20260205T0000",
+            "provenance": "Выгрузка размещённых договоров за 04.02.2026",
+            "valid": "20260206",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260205T0000-20260206T0000-structure-20230401.json",
+            "created": "20260206T0000",
+            "provenance": "Выгрузка размещённых договоров за 05.02.2026",
+            "valid": "20260207",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260206T0000-20260207T0000-structure-20230401.json",
+            "created": "20260207T0000",
+            "provenance": "Выгрузка размещённых договоров за 06.02.2026",
+            "valid": "20260208",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260207T0000-20260208T0000-structure-20230401.json",
+            "created": "20260208T0000",
+            "provenance": "Выгрузка размещённых договоров за 07.02.2026",
+            "valid": "20260209",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260208T0000-20260209T0000-structure-20230401.json",
+            "created": "20260209T0000",
+            "provenance": "Выгрузка размещённых договоров за 08.02.2026",
+            "valid": "20260210",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260209T0000-20260210T0000-structure-20230401.json",
+            "created": "20260210T0000",
+            "provenance": "Выгрузка размещённых договоров за 09.02.2026",
+            "valid": "20260211",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260210T0000-20260211T0000-structure-20230401.json",
+            "created": "20260211T0000",
+            "provenance": "Выгрузка размещённых договоров за 10.02.2026",
+            "valid": "20260212",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260211T0000-20260212T0000-structure-20230401.json",
+            "created": "20260212T0000",
+            "provenance": "Выгрузка размещённых договоров за 11.02.2026",
+            "valid": "20260213",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260212T0000-20260213T0000-structure-20230401.json",
+            "created": "20260213T0000",
+            "provenance": "Выгрузка размещённых договоров за 12.02.2026",
+            "valid": "20260214",
+            "structure": "20230401"
+        },
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/data-20260213T0000-20260214T0000-structure-20230401.json",
+            "created": "20260214T0000",
+            "provenance": "Выгрузка размещённых договоров за 13.02.2026",
+            "valid": "20260215",
+            "structure": "20230401"
+        }
+    ],
+    "structure": [
+        {
+            "source": "https://torgi.gov.ru/new/opendata/7710568760-contract/structure-20230401.json",
+            "created": "20230401"
+        }
+    ],
+    "publisher": {
+        "name": "Сапан Евгений Валерьевич",
+        "phone": "+78003010777",
+        "mbox": "info@roskazna.ru"
+    }
+}

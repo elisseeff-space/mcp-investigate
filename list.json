@@ -1,0 +1,53 @@
+{
+    "standardversion": "https://torgi.gov.ru/new/nsi/v1/file-store/68de96d9781d120ec4fce543",
+    "meta": [
+        {
+            "identifier": "7710568760-organization",
+            "title": "Организации",
+            "link": "https://torgi.gov.ru/new/opendata/7710568760-organization/meta.json",
+            "format": ".json"
+        },
+        {
+            "identifier": "7710568760-masterData",
+            "title": "Нормативно-справочная информация",
+            "link": "https://torgi.gov.ru/new/opendata/7710568760-masterData/meta.json",
+            "format": ".json"
+        },
+        {
+            "identifier": "7710568760-notice",
+            "title": "Извещения и информационные сообщения",
+            "link": "https://torgi.gov.ru/new/opendata/7710568760-notice/meta.json",
+            "format": ".json"
+        },
+        {
+            "identifier": "7710568760-contract",
+            "title": "Договоры, исполнения и расторжения договоров",
+            "link": "https://torgi.gov.ru/new/opendata/7710568760-contract/meta.json",
+            "format": ".json"
+        },
+        {
+            "identifier": "7710568760-privatizationPlans",
+            "title": "Планы приватизации",
+            "link": "https://torgi.gov.ru/new/opendata/7710568760-privatizationPlans/meta.json",
+            "format": ".json"
+        },
+        {
+            "identifier": "7710568760-protocol",
+            "title": "Протоколы и связанные документы",
+            "link": "https://torgi.gov.ru/new/opendata/7710568760-protocol/meta.json",
+            "format": ".json"
+        },
+        {
+            "identifier": "7710568760-unscrupulousParticipants",
+            "title": "Реестр недобросовестных участников",
+            "link": "https://torgi.gov.ru/new/opendata/7710568760-unscrupulousParticipants/meta.json",
+            "format": ".json"
+        },
+        {
+            "identifier": "7710568760-estateLists",
+            "title": "Перечни объектов имущества",
+            "link": "https://torgi.gov.ru/new/opendata/7710568760-estateLists/meta.json",
+            "format": ".json"
+        }
+    ]
+}
