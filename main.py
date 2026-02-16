@@ -6,10 +6,12 @@ import sys
 import json
 import requests
 import argparse
+import logging
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 import psycopg2
 from psycopg2.extras import Json
+from psycopg2.errors import UniqueViolation
 
 
 # Загрузка переменных окружения из .env файла
@@ -420,8 +422,9 @@ def create_document_tables(conn):
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS privatizationplan (
             id SERIAL PRIMARY KEY,
+            privatizationplansdetail_id INTEGER REFERENCES privatizationplansdetail(id),
             schemeversion VARCHAR(100),
-            id_field VARCHAR(200),
+            id_field VARCHAR(200) UNIQUE,
             version INTEGER,
             plannumber VARCHAR(100),
             name TEXT,
@@ -467,8 +470,9 @@ def create_document_tables(conn):
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS privatizationdecision (
             id SERIAL PRIMARY KEY,
+            privatizationplansdetail_id INTEGER REFERENCES privatizationplansdetail(id),
             schemeversion VARCHAR(100),
-            id_field VARCHAR(200),
+            id_field VARCHAR(200) UNIQUE,
             decisionnumber VARCHAR(100),
             publishdate TIMESTAMP,
             timezone_code VARCHAR(100),
@@ -509,8 +513,9 @@ def create_document_tables(conn):
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS plancancel (
             id SERIAL PRIMARY KEY,
+            privatizationplansdetail_id INTEGER REFERENCES privatizationplansdetail(id),
             schemeversion VARCHAR(100),
-            id_field VARCHAR(200),
+            id_field VARCHAR(200) UNIQUE,
             plannumber VARCHAR(100),
             name TEXT,
             cancellationdate TIMESTAMP,
@@ -537,8 +542,9 @@ def create_document_tables(conn):
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS planreport (
             id SERIAL PRIMARY KEY,
+            privatizationplansdetail_id INTEGER REFERENCES privatizationplansdetail(id),
             schemeversion VARCHAR(100),
-            id_field VARCHAR(200),
+            id_field VARCHAR(200) UNIQUE,
             version INTEGER,
             rootid VARCHAR(200),
             name TEXT,
@@ -616,8 +622,8 @@ def create_document_tables(conn):
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS privatizationobjects (
             id SERIAL PRIMARY KEY,
-            privatizationplan_id VARCHAR(200),
-            objectnumber VARCHAR(100),
+            privatizationplan_id INTEGER REFERENCES privatizationplansdetail(id),
+            objectnumber VARCHAR(100) UNIQUE,
             statusobject VARCHAR(100),
             name TEXT,
             type VARCHAR(100),
@@ -757,7 +763,7 @@ def fetch_and_save_document_file(href, document_type):
         return None
 
 
-def process_document_file(filepath, document_type, conn):
+def process_document_file(filepath, document_type, conn, privatizationplansdetail_id=None):
     """
     Обрабатывает файл документа и сохраняет данные в соответствующую таблицу.
     """
@@ -801,8 +807,13 @@ def process_document_file(filepath, document_type, conn):
         print(f"  Не удалось извлечь данные для типа документа {document_type}")
         return False
     
+    # Добавляем privatizationplansdetail_id в данные
+    if privatizationplansdetail_id is not None:
+        flat_data = {"privatizationplansdetail_id": privatizationplansdetail_id}
+    else:
+        flat_data = {}
+    
     # Обрабатываем вложенные структуры и создаем плоскую структуру полей
-    flat_data = {}
     
     # Обработка полей верхнего уровня
     for key, value in doc_data.items():
@@ -831,6 +842,50 @@ def process_document_file(filepath, document_type, conn):
                     flat_data["signeddata_size"] = value.get("signedData", {}).get("size")
                     flat_data["signeddata_hash"] = value.get("signedData", {}).get("hash")
                     flat_data["signeddata_filetype"] = value.get("signedData", {}).get("fileType")
+                elif document_type == "privatizationDecision":
+                    flat_data["schemeversion"] = doc_data.get("schemeVersion")
+                    flat_data["id_field"] = doc_data.get("id")
+                    flat_data["decisionnumber"] = value.get("decisionNumber")
+                    flat_data["publishdate"] = value.get("publishDate")
+                    flat_data["timezone_code"] = value.get("timeZone", {}).get("code")
+                    flat_data["timezone_name"] = value.get("timeZone", {}).get("name")
+                    flat_data["hostingorg_code"] = doc_data.get("hostingOrg", {}).get("code")
+                    flat_data["bidderorg_code"] = doc_data.get("bidderOrg", {}).get("code")
+                    flat_data["bidderorg_name"] = doc_data.get("bidderOrg", {}).get("name")
+                    flat_data["bidderorg_inn"] = doc_data.get("bidderOrg", {}).get("INN")
+                    flat_data["bidderorg_kpp"] = doc_data.get("bidderOrg", {}).get("KPP")
+                    flat_data["bidderorg_ogrn"] = doc_data.get("bidderOrg", {}).get("OGRN")
+                    flat_data["bidderorg_orgtype"] = doc_data.get("bidderOrg", {}).get("orgType")
+                    flat_data["bidderorg_unregistered"] = doc_data.get("bidderOrg", {}).get("unregistered")
+                    flat_data["privatizationreason"] = doc_data.get("privatizationReason")
+                    flat_data["startprice"] = doc_data.get("startPrice")
+                    flat_data["stockinfo_minusone"] = doc_data.get("stockInfo", {}).get("minusOne")
+                    flat_data["privatizationobject_plannumber"] = doc_data.get("privatizationObject", {}).get("planNumber")
+                    flat_data["privatizationobject_objectnumber"] = doc_data.get("privatizationObject", {}).get("objectNumber")
+                    flat_data["privatizationobject_name"] = doc_data.get("privatizationObject", {}).get("name")
+                    flat_data["privatizationobject_type"] = doc_data.get("privatizationObject", {}).get("type")
+                    flat_data["privatizationobject_isnotinplan"] = doc_data.get("privatizationObject", {}).get("isNotInPlan")
+                    flat_data["signeddata_id"] = value.get("signedData", {}).get("id")
+                    flat_data["signeddata_size"] = value.get("signedData", {}).get("size")
+                    flat_data["signeddata_hash"] = value.get("signedData", {}).get("hash")
+                    flat_data["signeddata_filetype"] = value.get("signedData", {}).get("fileType")
+                    # Обработка attachments
+                    attachments = doc_data.get("attachments", [])
+                    if attachments:
+                        attachment = attachments[0]
+                        flat_data["attachments_id"] = attachment.get("id")
+                        flat_data["attachments_name"] = attachment.get("name")
+                        flat_data["attachments_size"] = attachment.get("size")
+                        flat_data["attachments_hash"] = attachment.get("hash")
+                        attachment_type = attachment.get("attachmentType", {})
+                        flat_data["attachments_attachmenttype_code"] = attachment_type.get("code")
+                        flat_data["attachments_attachmenttype_name"] = attachment_type.get("name")
+                    # Обработка biddForms
+                    bidd_forms = doc_data.get("biddForms", [])
+                    if bidd_forms:
+                        bid_form = bidd_forms[0]
+                        flat_data["biddforms_code"] = bid_form.get("code")
+                        flat_data["biddforms_name"] = bid_form.get("name")
                 else:
                     flat_data["plannumber"] = value.get("planNumber")
                     flat_data["name"] = value.get("name")
@@ -842,7 +897,7 @@ def process_document_file(filepath, document_type, conn):
                     flat_data["signeddata_size"] = value.get("signedData", {}).get("size")
                     flat_data["signeddata_hash"] = value.get("signedData", {}).get("hash")
                     flat_data["signeddata_filetype"] = value.get("signedData", {}).get("fileType")
-            elif key == "hostingOrg":
+            elif key == "hostingOrg" and document_type != "privatizationDecision":
                 flat_data["hostingorg_code"] = value.get("code")
                 flat_data["hostingorg_name"] = value.get("name")
                 flat_data["hostingorg_inn"] = value.get("INN")
@@ -925,23 +980,23 @@ def process_document_file(filepath, document_type, conn):
                 flat_data["reportdata_revenuesdata_factnontaxrevenuetotalsum"] = revenues_data.get("factNonTaxRevenueTotalSum")
                 flat_data["reportdata_revenuesdata_factnontaxrevenuethisyeartotalsum"] = revenues_data.get("factNonTaxRevenueThisYearTotalSum")
                 flat_data["reportdata_revenuesdata_factnontaxrevenuelastyeartotalsum"] = revenues_data.get("factNonTaxRevenueLastYearTotalSum")
-            elif key == "privatizationObject":
+            elif key == "privatizationObject" and document_type != "privatizationDecision":
                 flat_data["privatizationobject_plannumber"] = value.get("planNumber")
                 flat_data["privatizationobject_objectnumber"] = value.get("objectNumber")
                 flat_data["privatizationobject_name"] = value.get("name")
                 flat_data["privatizationobject_type"] = value.get("type")
                 flat_data["privatizationobject_isnotinplan"] = value.get("isNotInPlan")
-            elif key == "stockInfo":
+            elif key == "stockInfo" and document_type != "privatizationDecision":
                 flat_data["stockinfo_minusone"] = value.get("minusOne")
-            elif key == "purpose":
+            elif key == "purpose" and document_type != "privatizationDecision":
                 flat_data["purpose_code"] = value.get("code")
                 flat_data["purpose_name"] = value.get("name")
-            elif key == "attachmentType":
+            elif key == "attachmentType" and document_type != "privatizationDecision":
                 flat_data["attachments_attachmenttype_code"] = value.get("code")
                 flat_data["attachments_attachmenttype_name"] = value.get("name")
         elif isinstance(value, list):
             # Обработка массивов
-            if key == "attachments":
+            if key == "attachments" and document_type != "privatizationDecision":
                 # Берем первый элемент массива attachments
                 if value:
                     attachment = value[0]
@@ -952,22 +1007,22 @@ def process_document_file(filepath, document_type, conn):
                     attachment_type = attachment.get("attachmentType", {})
                     flat_data["attachments_attachmenttype_code"] = attachment_type.get("code")
                     flat_data["attachments_attachmenttype_name"] = attachment_type.get("name")
-            elif key == "biddForms":
+            elif key == "biddForms" and document_type != "privatizationDecision":
                 if value:
                     bid_form = value[0]
                     flat_data["biddforms_code"] = bid_form.get("code")
                     flat_data["biddforms_name"] = bid_form.get("name")
         else:
             # Простые поля верхнего уровня
-            if key == "schemeVersion":
+            if key == "schemeVersion" and document_type != "privatizationDecision":
                 flat_data["schemeversion"] = value
-            elif key == "id":
+            elif key == "id" and document_type != "privatizationDecision":
                 flat_data["id_field"] = value
             elif key == "version":
                 flat_data["version"] = value
-            elif key == "decisionNumber":
+            elif key == "decisionNumber" and document_type != "privatizationDecision":
                 flat_data["decisionnumber"] = value
-            elif key == "publishDate":
+            elif key == "publishDate" and document_type not in ("privatizationDecision", "planCancel", "planReport"):
                 flat_data["publishdate"] = value
             elif key == "cancellationDate":
                 flat_data["cancellationdate"] = value
@@ -983,10 +1038,10 @@ def process_document_file(filepath, document_type, conn):
                 flat_data["signingdate"] = value
             elif key == "year":
                 flat_data["year"] = value
-            elif key == "timeZone":
+            elif key == "timeZone" and document_type != "privatizationDecision":
                 flat_data["timezone_code"] = value.get("code")
                 flat_data["timezone_name"] = value.get("name")
-            elif key == "bidderOrg":
+            elif key == "bidderOrg" and document_type != "privatizationDecision":
                 flat_data["bidderorg_code"] = value.get("code")
                 flat_data["bidderorg_name"] = value.get("name")
                 flat_data["bidderorg_inn"] = value.get("INN")
@@ -994,9 +1049,9 @@ def process_document_file(filepath, document_type, conn):
                 flat_data["bidderorg_ogrn"] = value.get("OGRN")
                 flat_data["bidderorg_orgtype"] = value.get("orgType")
                 flat_data["bidderorg_unregistered"] = value.get("unregistered")
-            elif key == "privatizationReason":
+            elif key == "privatizationReason" and document_type != "privatizationDecision":
                 flat_data["privatizationreason"] = value
-            elif key == "startPrice":
+            elif key == "startPrice" and document_type != "privatizationDecision":
                 flat_data["startprice"] = value
             elif key == "authority":
                 flat_data["authority"] = value
@@ -1008,8 +1063,9 @@ def process_document_file(filepath, document_type, conn):
     # Обработка массива privatizationObjects для типа privatizationPlan
     if document_type == "privatizationPlan" and "privatizationObjects" in doc_data:
         priv_objects = doc_data.get("privatizationObjects", [])
+        privatizationplansdetail_id = flat_data.get("privatizationplansdetail_id")
         for obj in priv_objects:
-            insert_privatization_object(cursor, flat_data.get("id_field"), obj)
+            insert_privatization_object(cursor, privatizationplansdetail_id, obj)
     
     # Формируем SQL запрос для вставки
     if flat_data:
@@ -1030,7 +1086,7 @@ def process_document_file(filepath, document_type, conn):
     return False
 
 
-def insert_privatization_object(cursor, plan_id, obj):
+def insert_privatization_object(cursor, privatizationplansdetail_id, obj):
     """Вставляет объект приватизации в таблицу privatizationobjects"""
     stock_info = obj.get("stockInfo", {})
     purpose = obj.get("purpose", {})
@@ -1045,8 +1101,27 @@ def insert_privatization_object(cursor, plan_id, obj):
             attachments_id, attachments_name, attachments_size, attachments_hash,
             attachments_attachmenttype_code, attachments_attachmenttype_name
         ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ON CONFLICT (objectnumber) DO UPDATE SET
+            privatizationplan_id = EXCLUDED.privatizationplan_id,
+            statusobject = EXCLUDED.statusobject,
+            name = EXCLUDED.name,
+            type = EXCLUDED.type,
+            timing = EXCLUDED.timing,
+            subjectrf_code = EXCLUDED.subjectrf_code,
+            subjectrf_name = EXCLUDED.subjectrf_name,
+            location = EXCLUDED.location,
+            stockinfo_minusone = EXCLUDED.stockinfo_minusone,
+            purpose_code = EXCLUDED.purpose_code,
+            purpose_name = EXCLUDED.purpose_name,
+            kadnumber = EXCLUDED.kadnumber,
+            attachments_id = EXCLUDED.attachments_id,
+            attachments_name = EXCLUDED.attachments_name,
+            attachments_size = EXCLUDED.attachments_size,
+            attachments_hash = EXCLUDED.attachments_hash,
+            attachments_attachmenttype_code = EXCLUDED.attachments_attachmenttype_code,
+            attachments_attachmenttype_name = EXCLUDED.attachments_attachmenttype_name
     """, (
-        plan_id,
+        privatizationplansdetail_id,
         obj.get("objectNumber"),
         obj.get("statusObject"),
         obj.get("name"),
@@ -1242,7 +1317,7 @@ def fetch_privatization_plans_docs():
         
         # Обрабатываем файл и сохраняем данные в БД
         print(f"  Обработка файла: {filepath}")
-        if process_document_file(filepath, document_type, conn):
+        if process_document_file(filepath, document_type, conn, record_id):
             processed_count += 1
     
     conn.close()
